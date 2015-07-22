@@ -1,0 +1,8 @@
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.WcfHost\bin\Debug\ChuanYu.TA.WcfHost.dll
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.WcfHost\bin\Debug\ChuanYu.TA.WcfHost.pdb
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.WcfHost\obj\Debug\ChuanYu.TA.WcfHost.dll
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.WcfHost\obj\Debug\ChuanYu.TA.WcfHost.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.WcfHost\bin\Debug\ChuanYu.TA.WcfHost.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.WcfHost\bin\Debug\ChuanYu.TA.WcfHost.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.WcfHost\obj\Debug\ChuanYu.TA.WcfHost.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.WcfHost\obj\Debug\ChuanYu.TA.WcfHost.pdb

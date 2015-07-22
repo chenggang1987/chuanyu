@@ -1,0 +1,9 @@
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.Test\bin\Debug\ChuanYu.TA.Test.dll
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.Test\bin\Debug\ChuanYu.TA.Test.pdb
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.Test\obj\Debug\ChuanYu.TA.Test.dll
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.Test\obj\Debug\ChuanYu.TA.Test.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Test\bin\Debug\ChuanYu.TA.Test.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Test\bin\Debug\ChuanYu.TA.Test.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Test\obj\Debug\ChuanYu.TA.Test.csprojResolveAssemblyReference.cache
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Test\obj\Debug\ChuanYu.TA.Test.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Test\obj\Debug\ChuanYu.TA.Test.pdb

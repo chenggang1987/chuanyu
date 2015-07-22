@@ -1,0 +1,9 @@
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Debug\ChuanYu.TA.Domain.dll
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Debug\ChuanYu.TA.Domain.pdb
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.Domain\obj\Debug\ChuanYu.TA.Domain.dll
+E:\MyCode\ChuanYu.TA.OW\ChuanYu.TA.Domain\obj\Debug\ChuanYu.TA.Domain.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Debug\ChuanYu.TA.Domain.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Debug\ChuanYu.TA.Domain.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\obj\Debug\ChuanYu.TA.Domain.csprojResolveAssemblyReference.cache
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\obj\Debug\ChuanYu.TA.Domain.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\obj\Debug\ChuanYu.TA.Domain.pdb
