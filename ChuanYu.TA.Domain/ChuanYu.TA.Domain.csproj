@@ -31,7 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,8 +42,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Common\SerializationHelper.cs" />
+    <Compile Include="Common\UserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CyUserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChuanYu.TA.Data\ChuanYu.TA.Data.csproj">
+      <Project>{538a9dfa-4fdf-4ce7-a204-c553197f5f6a}</Project>
+      <Name>ChuanYu.TA.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChuanYu.TA.Entity\ChuanYu.TA.Entity.csproj">
+      <Project>{503d0c3f-ae05-4a96-b00e-1a375f948b5d}</Project>
+      <Name>ChuanYu.TA.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sys.Common\Sys.Common.csproj">
+      <Project>{30500c5d-8dd8-4ea1-9827-51cecdc6a552}</Project>
+      <Name>Sys.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

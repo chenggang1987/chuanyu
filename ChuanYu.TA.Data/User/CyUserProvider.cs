@@ -18,19 +18,17 @@
  * 描述：
  *
 /*******************************************************************************/
+
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ChuanYu.TA.Entity.Common;
 using ChuanYu.TA.Entity.Enums;
 using ChuanYu.TA.Entity.User;
 using Sys.Common;
 using Sys.Common.Dapper;
 
-namespace ChuanYu.TA.Data.UserProvider
+namespace ChuanYu.TA.Data.User
 {
     public class CyUserProvider
     {
@@ -162,7 +160,7 @@ namespace ChuanYu.TA.Data.UserProvider
                 {
                     try
                     {
-                        var rows = conn.Execute(sql,entity);
+                        var rows = conn.Execute(sql, entity);
                         commonResult.Success = true;
                         commonResult.Message = "执行成功";
                         commonResult.EffectRows = rows;
@@ -228,12 +226,119 @@ namespace ChuanYu.TA.Data.UserProvider
                                         ,[UpdateTime]
                                         ,[DataStatus]
                                     FROM [dbo].[CyUser](NOLOCK)
-                                    WHERE UserNo=@UserNo";
+                                    WHERE UserNo=@UserNo AND DataStatus=@DataStatus";
             using (var conn = DbHelper.CreateOpenConnection(DbConnectionStringConfig.CyReadConnectionStringName))
             {
                 try
                 {
-                    var model = conn.Query<CyUserEntity>(sql, new { UserNo = userNo, DataStatus = DataStatus.Valid }).ToList();
+                    var model = conn.Query<CyUserEntity>(sql, new { UserNo = userNo, DataStatus = DataStatus.Valid }).FirstOrDefault();
+                    commonResult.Success = true;
+                    commonResult.Message = "执行成功";
+                    commonResult.ResultObj = model;
+                }
+                catch (Exception ex)
+                {
+                    commonResult.Success = false;
+                    commonResult.IsHappenEx = true;
+                    commonResult.Message = "执行失败";
+                    commonResult.ExMessage = ex.Message;
+                    commonResult.ExData = ex;
+                }
+                return commonResult;
+            }
+        }
+
+        /// <summary>
+        /// 添加登录日志
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="trans"></param>
+        /// <returns></returns>
+        public CommonResult<string> AddCyUserLoginLog(CyUserLoginLogEntity entity, IDbTransaction trans = null)
+        {
+            var commonResult = new CommonResult<string>();
+            const string sql = @"INSERT INTO [dbo].[CyUserLoginLog]
+                                       ([UserNo]
+                                       ,[LoginTime]
+                                       ,[LoginIp])
+                                 VALUES
+                                       (@UserNo
+                                       ,@LoginTime
+                                       ,@LoginIp)";
+            if (trans == null)
+            {
+                using (var conn = DbHelper.CreateOpenConnection(DbConnectionStringConfig.CyMainDbConnectionStringName))
+                {
+                    try
+                    {
+                        var rows = conn.Execute(sql, entity);
+
+                        commonResult.Success = true;
+                        commonResult.Message = "执行成功";
+                        commonResult.EffectRows = rows;
+                    }
+                    catch (Exception ex)
+                    {
+                        commonResult.Success = false;
+                        commonResult.IsHappenEx = true;
+                        commonResult.Message = "执行失败";
+                        commonResult.ExMessage = ex.Message;
+                        commonResult.ExData = ex;
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+                    var rows = trans.Connection.Execute(sql, entity, transaction: trans);
+
+                    commonResult.Success = true;
+                    commonResult.Message = "执行成功";
+                    commonResult.EffectRows = rows;
+                }
+                catch (Exception ex)
+                {
+                    commonResult.Success = false;
+                    commonResult.IsHappenEx = true;
+                    commonResult.Message = "执行失败";
+                    commonResult.ExMessage = ex.Message;
+                    commonResult.ExData = ex;
+                }
+            }
+            return commonResult;
+        }
+
+        public CommonResult<CyUserEntity> GetCyUserByUserName(string userName)
+        {
+            var commonResult = new CommonResult<CyUserEntity>();
+            const string sql = @"SELECT [UserId]
+                                        ,[UserNo]
+                                        ,[UserName]
+                                        ,[UserPwd]
+                                        ,[NickName]
+                                        ,[TrueName]
+                                        ,[Gender]
+                                        ,[MobilePhone]
+                                        ,[Email]
+                                        ,[QQ]
+                                        ,[Birthday]
+                                        ,[BirthPlace]
+                                        ,[Residence]
+                                        ,[MemberType]
+                                        ,[Role]
+                                        ,[CreateUserNo]
+                                        ,[CreateTime]
+                                        ,[UpdateUserNo]
+                                        ,[UpdateTime]
+                                        ,[DataStatus]
+                                    FROM [dbo].[CyUser](NOLOCK)
+                                    WHERE UserName=@UserName AND DataStatus=@DataStatus";
+            using (var conn = DbHelper.CreateOpenConnection(DbConnectionStringConfig.CyReadConnectionStringName))
+            {
+                try
+                {
+                    var model = conn.Query<CyUserEntity>(sql, new { UserName = userName, DataStatus = DataStatus.Valid }).ToList();
                     commonResult.Success = true;
                     commonResult.Message = "执行成功";
                     commonResult.ResultObjList = model;

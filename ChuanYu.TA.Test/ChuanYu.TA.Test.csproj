@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,8 +42,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="UnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChuanYu.TA.Data\ChuanYu.TA.Data.csproj">
+      <Project>{538a9dfa-4fdf-4ce7-a204-c553197f5f6a}</Project>
+      <Name>ChuanYu.TA.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChuanYu.TA.Domain\ChuanYu.TA.Domain.csproj">
+      <Project>{63d24458-465d-44c5-aa3b-8cd1a09ee71a}</Project>
+      <Name>ChuanYu.TA.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChuanYu.TA.Entity\ChuanYu.TA.Entity.csproj">
+      <Project>{503d0c3f-ae05-4a96-b00e-1a375f948b5d}</Project>
+      <Name>ChuanYu.TA.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sys.Common\Sys.Common.csproj">
+      <Project>{30500c5d-8dd8-4ea1-9827-51cecdc6a552}</Project>
+      <Name>Sys.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

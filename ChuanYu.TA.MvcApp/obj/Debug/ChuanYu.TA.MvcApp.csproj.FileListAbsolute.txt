@@ -29,6 +29,14 @@ E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\zh-Hans\System.Web.Razor.re
 E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\zh-Hans\System.Web.WebPages.resources.dll
 E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\obj\Debug\ChuanYu.TA.MvcApp.csprojResolveAssemblyReference.cache
 E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\obj\Debug\ChuanYu.TA.MvcApp.dll
 E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\obj\Debug\ChuanYu.TA.MvcApp.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\ChuanYu.TA.Data.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\ChuanYu.TA.Domain.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\ChuanYu.TA.Entity.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\Sys.Common.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\ChuanYu.TA.Data.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\ChuanYu.TA.Domain.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\ChuanYu.TA.Entity.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\bin\Sys.Common.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.MvcApp\obj\Debug\ChuanYu.TA.MvcApp.csprojResolveAssemblyReference.cache

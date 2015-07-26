@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="Base\BaseEntity.cs" />
     <Compile Include="Common\CommonResult.cs" />
+    <Compile Include="Common\UserModel.cs" />
+    <Compile Include="CySequenceCounterEntity.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\MemberType.cs" />
     <Compile Include="Enums\Role.cs" />

@@ -37,12 +37,12 @@ namespace ChuanYu.TA.Entity.User
         public string UserNo { get; set; }
 
         /// <summary>
-        /// 用户名
+        /// 登录用户名
         /// </summary>
         public string UserName { get; set; }
 
         /// <summary>
-        /// 密码
+        /// 登录密码
         /// </summary>
         public string UserPwd { get; set; }
 
@@ -85,7 +85,7 @@ namespace ChuanYu.TA.Entity.User
         /// 出生地
         /// </summary>
         public string BirthPlace { get; set; }
-        
+
         /// <summary>
         /// 居住地
         /// </summary>

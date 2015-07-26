@@ -19,9 +19,30 @@
  *
 /*******************************************************************************/
 
+using System;
+
 namespace ChuanYu.TA.Entity.User
 {
     public class CyUserLoginLogEntity
     {
+        /// <summary>
+        /// 主键
+        /// </summary>
+        public long CyUserLoginLogId { get; set; }
+
+        /// <summary>
+        /// 用户编号
+        /// </summary>
+        public string UserNo { get; set; }
+
+        /// <summary>
+        /// 登录时间
+        /// </summary>
+        public DateTime LoginTime { get; set; }
+
+        /// <summary>
+        /// 登录IP
+        /// </summary>
+        public string LoginIp { get; set; }
     }
 }
