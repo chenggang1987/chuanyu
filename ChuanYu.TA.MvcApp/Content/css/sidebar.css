@@ -1,0 +1,17 @@
+﻿.sidemain {
+    border: 1px solid #CCCCCC; 
+    background-image: url('../../Content/images/tzgg_02.gif'); 
+    width: 205px; 
+    height: 300px; 
+}
+.sidetop {
+    background-image: url('../../Content/images/column_title.gif'); 
+    width: 205px;
+    height: 32px;
+}
+.sidetop_text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #006600;
+    padding-left: 40px;
+}

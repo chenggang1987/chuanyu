@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using ChuanYu.TA.MvcApp.Models;
 using ChuanYu.TA.Entity.Common;
 using ChuanYu.TA.Entity.User;
 using ChuanYu.TA.Domain.Services;
 using ChuanYu.TA.Domain.Common;
+using ChuanYu.TA.Entity.Enums;
 using Sys.Common;
 
 namespace ChuanYu.TA.MvcApp.Controllers
@@ -71,6 +73,54 @@ namespace ChuanYu.TA.MvcApp.Controllers
             }
 
             return Json(commonResult, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        public JsonResult SubmitRegister(CyUser user)
+        {
+            try
+            {
+                CyUserEntity cyUserEntity = Mapper.Map<CyUser, CyUserEntity>(user);
+                cyUserEntity.MemberType = MemberType.Normal;
+                cyUserEntity.Role = Role.Normal;
+                cyUserEntity.CreateUserNo = "System";
+                cyUserEntity.UpdateUserNo = "System";
+                if (string.IsNullOrWhiteSpace(cyUserEntity.Birthday))
+                {
+                    cyUserEntity.Birthday = string.Empty;
+                }
+                if (string.IsNullOrWhiteSpace(cyUserEntity.BirthPlace))
+                {
+                    cyUserEntity.BirthPlace = string.Empty;
+                }
+                if (string.IsNullOrWhiteSpace(cyUserEntity.Residence))
+                {
+                    cyUserEntity.Residence = string.Empty;
+                }
+                if (string.IsNullOrWhiteSpace(cyUserEntity.Position))
+                {
+                    cyUserEntity.Position = string.Empty;
+                }
+
+                var addResult = CyUserService.AddCyUser(cyUserEntity);
+                if (addResult.Success && addResult.EffectRows > 0)
+                {
+                    return Json(new { IsSuccess = true });
+                }
+                else
+                {
+                    return Json(new { IsSuccess = false, ErrorInfo = addResult.ExMessage });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { IsSuccess = false, ErrorInfo = ex });
+            }
+
         }
     }
 }

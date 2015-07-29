@@ -77,6 +77,16 @@ namespace ChuanYu.TA.Entity.User
         public string QQ { get; set; }
 
         /// <summary>
+        /// 行业
+        /// </summary>
+        public Industry Industry { get; set; }
+
+        /// <summary>
+        /// 职位
+        /// </summary>
+        public string Position { get; set; }
+
+        /// <summary>
         /// 出生日期
         /// </summary>
         public string Birthday { get; set; }

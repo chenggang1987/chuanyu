@@ -50,7 +50,9 @@ namespace ChuanYu.TA.Data.User
                                         ,[Gender]
                                         ,[MobilePhone]
                                         ,[Email]
-                                        ,[QQ]
+                                        ,[QQ]                                       
+                                        ,[Industry]
+                                        ,[Position]
                                         ,[Birthday]
                                         ,[BirthPlace]
                                         ,[Residence]
@@ -71,6 +73,8 @@ namespace ChuanYu.TA.Data.User
                                         ,@MobilePhone
                                         ,@Email
                                         ,@QQ
+                                        ,@Industry
+                                        ,@Position
                                         ,@Birthday
                                         ,@BirthPlace
                                         ,@Residence
@@ -215,6 +219,8 @@ namespace ChuanYu.TA.Data.User
                                         ,[MobilePhone]
                                         ,[Email]
                                         ,[QQ]
+                                        ,[Industry]
+                                        ,[Position]
                                         ,[Birthday]
                                         ,[BirthPlace]
                                         ,[Residence]
@@ -322,6 +328,8 @@ namespace ChuanYu.TA.Data.User
                                         ,[MobilePhone]
                                         ,[Email]
                                         ,[QQ]
+                                        ,[Industry]
+                                        ,[Position]
                                         ,[Birthday]
                                         ,[BirthPlace]
                                         ,[Residence]

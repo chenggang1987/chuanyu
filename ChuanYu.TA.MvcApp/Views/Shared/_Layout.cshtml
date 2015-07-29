@@ -4,13 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <link href="~/Content/css/base.css" rel="stylesheet" />
+    <link href="~/Content/css/page.css" rel="stylesheet" />
 </head>
 <body>
-    @RenderBody()
-
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+    <div>
+        <div id="header">
+            @{ Html.RenderPartial("_Header");}
+        </div>
+        <div id="bodycenter">
+            @RenderBody()
+        </div>
+        <div id="footer">
+            @{ Html.RenderPartial("_Footer");}
+        </div>
+    </div>
 </body>
 </html>

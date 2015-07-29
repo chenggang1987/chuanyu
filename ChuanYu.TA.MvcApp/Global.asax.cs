@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ChuanYu.TA.Domain.Common;
+using ChuanYu.TA.MvcApp.Common;
 
 namespace ChuanYu.TA.MvcApp
 {
@@ -22,6 +24,7 @@ namespace ChuanYu.TA.MvcApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AutoMapperConfig.Configure();
         }
     }
 }

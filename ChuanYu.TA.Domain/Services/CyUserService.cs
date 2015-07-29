@@ -24,6 +24,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChuanYu.TA.Data;
 using ChuanYu.TA.Data.User;
 using ChuanYu.TA.Entity.Common;
 using ChuanYu.TA.Entity.User;
@@ -45,6 +46,15 @@ namespace ChuanYu.TA.Domain.Services
                 return _userProvider.Value;
             }
         }
+
+        private readonly Lazy<CySequenceCounterProvider> _cySequenceCounterProvider = new Lazy<CySequenceCounterProvider>();
+        public CySequenceCounterProvider CySequenceCounterProvider
+        {
+            get
+            {
+                return _cySequenceCounterProvider.Value;
+            }
+        }
         #endregion
 
         /// <summary>
@@ -57,6 +67,12 @@ namespace ChuanYu.TA.Domain.Services
         {
             try
             {
+                //生成会员编号
+                var userNo = CySequenceCounterProvider.GetNextCounterId("UserNo");
+                entity.UserNo = "CYHY" + userNo.ToString("000000");
+                //登录密码加密
+                var userPwd = StringUtil.ToHashString(entity.UserPwd);
+                entity.UserPwd = userPwd;
                 return CyUserProvider.AddCyUser(entity, trans);
             }
             catch (Exception)

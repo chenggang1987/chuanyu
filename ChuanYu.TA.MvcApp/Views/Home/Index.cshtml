@@ -1,6 +1,20 @@
 ﻿@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_PageLayout.cshtml";
+    ViewBag.Title = "川渝同乡联合总会";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/css/index.css" rel="stylesheet" />
+<div id="sidebar" style="float: left;">
+    <div class="idex_tg_main">
+        <div class="idex_tg_top">
+            <span class="idex_tg_text">通知公告</span>
+            <img src="~/Content/images/more_1.gif" />
+        </div>
+        <div>
+            <marquee id="scrollarea" onmouseover="this.stop();" onmouseout="this.start();" direction="up" height="180" width="180" scrollamount="2" scrolldelay="100" style="height: 180px; width: 180px;">&nbsp;&nbsp;&nbsp;&nbsp;<a class="" href="#" title="关于川渝同乡会会歌征集意见的通知">关于川渝同乡会会歌征集意见的通知</a><hr>&nbsp;&nbsp;&nbsp;&nbsp;<br /><a class="" href="#" title="关于川渝同乡会会歌征集意见的通知">关于川渝同乡会会歌征集意见的通知</a><hr>&nbsp;&nbsp;&nbsp;&nbsp;<br /></marquee>
+        </div>
+    </div>
 
-<h2>Index</h2>
+</div>
+<div id="mainbody" style="float: right;border: 1px solid #CCCCCC;">
+    我是主体内容
+</div>

@@ -1,0 +1,18 @@
+﻿.idex_tg_main {
+    border: 1px solid #CCCCCC; 
+    background-image: url('../../Content/images/tzgg_02.gif'); 
+    width: 205px; 
+    height: 300px; 
+    text-align: center;
+}
+.idex_tg_top {
+    background-image: url('../../Content/images/tzgg_01.gif'); 
+    width: 205px;
+    height: 35px;
+}
+.idex_tg_text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #CC3333;
+    padding-left: 40px;
+}
