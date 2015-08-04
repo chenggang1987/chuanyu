@@ -119,15 +119,22 @@ namespace Sys.Common
         }
 
         /// <summary>
-        /// 得到枚举的描述
+        /// 获取枚举的描述文本
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="enumType">枚举类型</param>
-        /// <param name="enumValue">枚举值</param>
+        /// <param name="e">枚举成员</param>
         /// <returns></returns>
-        public static string GetEnumDescription<T>(T enumValue, string separator = ",")
+        public static string GetEnumDescription(object e)
         {
-            return string.Join(separator, GetEnumValueDescriptions(enumValue).Select(e => e.Description));
+            //获取字段信息
+            FieldInfo[] ms = e.GetType().GetFields();
+
+            var t = e.GetType();
+            foreach (var dscript in (from f in ms where f.Name == e.ToString() from Attribute attr in f.GetCustomAttributes(true) select attr).OfType<DescriptionAttribute>())
+            {
+                return dscript.Description;
+            }
+            //如果没有检测到合适的注释，则用默认名称
+            return e.ToString();
         }
 
         /// <summary>

@@ -34,6 +34,8 @@ namespace ChuanYu.TA.MvcApp.Common
         protected override void Configure()
         {
             Mapper.CreateMap<CyUser, CyUserEntity>();
+            Mapper.CreateMap<CyUserEntity, CyUser>();
+            Mapper.CreateMap<CyCompany, CyCompanyEntity>();
         }
     }
 }

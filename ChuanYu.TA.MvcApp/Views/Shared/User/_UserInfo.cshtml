@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "_UserInfo";
+}
+@model ChuanYu.TA.MvcApp.Models.CyUser
+<div>
+    <ul class="forminfo clr">
+        <li>
+            <label>昵称：</label>
+            <label style="padding-left: 20px; text-align: left">@Model.NickName</label>
+            <label style="width: 300px; text-align: right; padding-left: 20px;">
+                <input type="button" value="编辑" style="width: 50px;height: 25px;" onclick="UserEdit()"/>
+            </label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>真实姓名：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.TrueName</label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>性别：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.Gender</label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>手机：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.MobilePhone</label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>邮箱：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.Email</label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>QQ：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.QQ</label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>出生日期：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.Birthday</label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>出生地：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.BirthPlace</label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>现居地：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.Residence</label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>从事行业：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.Industry</label>
+        </li>
+    </ul>
+    <ul class="forminfo clr">
+        <li>
+            <label>职位：</label>
+            <label style="padding-left: 20px;text-align: left">@Model.Position</label>
+        </li>
+    </ul>
+</div>

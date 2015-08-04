@@ -4,6 +4,6 @@ E:\MyCode\ChuanYu.TA.OW\Sys.Common\obj\Debug\Sys.Common.dll
 E:\MyCode\ChuanYu.TA.OW\Sys.Common\obj\Debug\Sys.Common.pdb
 E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\bin\Debug\Sys.Common.dll
 E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\bin\Debug\Sys.Common.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\obj\Debug\Sys.Common.csprojResolveAssemblyReference.cache
 E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\obj\Debug\Sys.Common.dll
 E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\obj\Debug\Sys.Common.pdb
-E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\obj\Debug\Sys.Common.csprojResolveAssemblyReference.cache

@@ -47,6 +47,7 @@
     <Compile Include="Enums\Industry.cs" />
     <Compile Include="Enums\MemberType.cs" />
     <Compile Include="Enums\Role.cs" />
+    <Compile Include="User\CyCompanyEntity.cs" />
     <Compile Include="User\CyUserEntity.cs" />
     <Compile Include="User\CyUserLoginLogEntity.cs" />
     <Compile Include="Enums\DataStatus.cs" />

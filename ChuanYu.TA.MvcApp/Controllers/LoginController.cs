@@ -16,6 +16,8 @@ namespace ChuanYu.TA.MvcApp.Controllers
 {
     public class LoginController : Controller
     {
+        //
+        // GET: /Login/
         #region 实例化对象
         /// <summary>
         /// 用户类对象
@@ -29,10 +31,6 @@ namespace ChuanYu.TA.MvcApp.Controllers
             }
         }
         #endregion
-
-        //
-        // GET: /Login/
-
         public ActionResult Login()
         {
             return View();
@@ -75,52 +73,5 @@ namespace ChuanYu.TA.MvcApp.Controllers
             return Json(commonResult, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        public JsonResult SubmitRegister(CyUser user)
-        {
-            try
-            {
-                CyUserEntity cyUserEntity = Mapper.Map<CyUser, CyUserEntity>(user);
-                cyUserEntity.MemberType = MemberType.Normal;
-                cyUserEntity.Role = Role.Normal;
-                cyUserEntity.CreateUserNo = "System";
-                cyUserEntity.UpdateUserNo = "System";
-                if (string.IsNullOrWhiteSpace(cyUserEntity.Birthday))
-                {
-                    cyUserEntity.Birthday = string.Empty;
-                }
-                if (string.IsNullOrWhiteSpace(cyUserEntity.BirthPlace))
-                {
-                    cyUserEntity.BirthPlace = string.Empty;
-                }
-                if (string.IsNullOrWhiteSpace(cyUserEntity.Residence))
-                {
-                    cyUserEntity.Residence = string.Empty;
-                }
-                if (string.IsNullOrWhiteSpace(cyUserEntity.Position))
-                {
-                    cyUserEntity.Position = string.Empty;
-                }
-
-                var addResult = CyUserService.AddCyUser(cyUserEntity);
-                if (addResult.Success && addResult.EffectRows > 0)
-                {
-                    return Json(new { IsSuccess = true });
-                }
-                else
-                {
-                    return Json(new { IsSuccess = false, ErrorInfo = addResult.ExMessage });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Json(new { IsSuccess = false, ErrorInfo = ex });
-            }
-
-        }
     }
 }

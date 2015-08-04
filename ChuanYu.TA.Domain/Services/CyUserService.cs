@@ -200,5 +200,18 @@ namespace ChuanYu.TA.Domain.Services
                 throw;
             }
         }
+
+        public CommonResult<string> AddCyCompany(CyCompanyEntity entity, IDbTransaction trans = null)
+        {
+            try
+            {
+                return CyUserProvider.AddCyCompany(entity, trans);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

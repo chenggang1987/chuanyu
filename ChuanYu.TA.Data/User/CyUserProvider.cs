@@ -139,9 +139,7 @@ namespace ChuanYu.TA.Data.User
         {
             var commonResult = new CommonResult<string>();
             const string sql = @"UPDATE [dbo].[CyUser]
-                                   SET [UserName] =@UserName
-                                      ,[UserPwd] =@UserPwd
-                                      ,[NickName] =@NickName
+                                   SET [NickName] =@NickName
                                       ,[TrueName] =@TrueName
                                       ,[Gender] =@Gender
                                       ,[MobilePhone] =@MobilePhone
@@ -150,13 +148,8 @@ namespace ChuanYu.TA.Data.User
                                       ,[Birthday] =@Birthday
                                       ,[BirthPlace] =@BirthPlace
                                       ,[Residence] =@Residence
-                                      ,[MemberType] =@MemberType
-                                      ,[Role] =@Role
-                                      ,[CreateUserNo] =@CreateUserNo
-                                      ,[CreateTime] =@CreateTime
                                       ,[UpdateUserNo] =@UpdateUserNo
                                       ,[UpdateTime] =@UpdateTime
-                                      ,[DataStatus] =@DataStatus
                                 WHERE UserNo=@UserNo";
             if (trans == null)
             {
@@ -315,6 +308,11 @@ namespace ChuanYu.TA.Data.User
             return commonResult;
         }
 
+        /// <summary>
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="userName">用户名</param>
+        /// <returns></returns>
         public CommonResult<CyUserEntity> GetCyUserByUserName(string userName)
         {
             var commonResult = new CommonResult<CyUserEntity>();
@@ -363,5 +361,85 @@ namespace ChuanYu.TA.Data.User
             }
         }
 
+        public CommonResult<string> AddCyCompany(CyCompanyEntity entity, IDbTransaction trans = null)
+        {
+            var commonResult = new CommonResult<string>();
+            const string sql = @"INSERT INTO [dbo].[CyCompany]
+                                                   ([UserNo]
+                                                   ,[CompanyName]
+                                                   ,[Industry]
+                                                   ,[ContactName]
+                                                   ,[ContactPhone]
+                                                   ,[ContactEmail]
+                                                   ,[CompanyTel]
+                                                   ,[CompanyFax]
+                                                   ,[CompanyAddress]
+                                                   ,[CompanyWebsite]
+                                                   ,[CompanyProfile]
+                                                   ,[CreateUserNo]
+                                                   ,[CreateTime]
+                                                   ,[UpdateUserNo]
+                                                   ,[UpdateTime]
+                                                   ,[DataStatus])
+                                             VALUES
+                                                   (@UserNo
+                                                   ,@CompanyName
+                                                   ,@Industry
+                                                   ,@ContactName
+                                                   ,@ContactPhone
+                                                   ,@ContactEmail
+                                                   ,@CompanyTel
+                                                   ,@CompanyFax
+                                                   ,@CompanyAddress
+                                                   ,@CompanyWebsite
+                                                   ,@CompanyProfile
+                                                   ,@CreateUserNo
+                                                   ,@CreateTime
+                                                   ,@UpdateUserNo
+                                                   ,@UpdateTime
+                                                   ,@DataStatus)";
+            if (trans == null)
+            {
+                using (var conn = DbHelper.CreateOpenConnection(DbConnectionStringConfig.CyMainDbConnectionStringName))
+                {
+                    try
+                    {
+                        var rows = conn.Execute(sql, entity);
+
+                        commonResult.Success = true;
+                        commonResult.Message = "执行成功";
+                        commonResult.EffectRows = rows;
+                    }
+                    catch (Exception ex)
+                    {
+                        commonResult.Success = false;
+                        commonResult.IsHappenEx = true;
+                        commonResult.Message = "执行失败";
+                        commonResult.ExMessage = ex.Message;
+                        commonResult.ExData = ex;
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+                    var rows = trans.Connection.Execute(sql, entity, transaction: trans);
+
+                    commonResult.Success = true;
+                    commonResult.Message = "执行成功";
+                    commonResult.EffectRows = rows;
+                }
+                catch (Exception ex)
+                {
+                    commonResult.Success = false;
+                    commonResult.IsHappenEx = true;
+                    commonResult.Message = "执行失败";
+                    commonResult.ExMessage = ex.Message;
+                    commonResult.ExData = ex;
+                }
+            }
+            return commonResult;
+        }
     }
 }

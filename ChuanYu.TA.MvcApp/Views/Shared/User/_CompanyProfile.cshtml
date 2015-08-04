@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "_CompanyProfile";
+}
+@model ChuanYu.TA.MvcApp.Models.CyCompany
+    <div class="formtitle"> <span>公司简介</span> </div>
+    <div>
+        <ul class="forminfo">
+            <li>
+                <textarea id="CompanyProfile" style="width: 750px; height: 450px; visibility: hidden;"></textarea>
+            </li>
+        </ul>
+    </div>
+<script type="text/javascript">
+    var profile;
+    KindEditor.ready(function (k) {
+        profile = k.create('#CompanyProfile', {
+            allowImageUpload: true,
+            //上传管理
+            uploadJson: '/User/UploadImage'
+        });
+    });
+</script>

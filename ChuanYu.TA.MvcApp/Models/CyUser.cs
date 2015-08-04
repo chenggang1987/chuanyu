@@ -9,6 +9,10 @@ namespace ChuanYu.TA.MvcApp.Models
     public class CyUser
     {
         /// <summary>
+        /// 用户编号
+        /// </summary>
+        public string UserNo { get; set; }
+        /// <summary>
         /// 登录用户名
         /// </summary>
         public string UserName { get; set; }
@@ -33,6 +37,8 @@ namespace ChuanYu.TA.MvcApp.Models
         /// </summary>
         public Gender Gender { get; set; }
 
+        public string GenderName { get; set; }
+
         /// <summary>
         /// 手机号
         /// </summary>
@@ -53,6 +59,7 @@ namespace ChuanYu.TA.MvcApp.Models
         /// </summary>
         public Industry Industry { get; set; }
 
+        public string IndustryName { get; set; }
         /// <summary>
         /// 职位
         /// </summary>

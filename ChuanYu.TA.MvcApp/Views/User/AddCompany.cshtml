@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "添加企业信息";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+@using ChuanYu.TA.MvcApp.Common
+@model ChuanYu.TA.MvcApp.Models.CyCompany
+<div class="place">
+    <span><img src="~/Content/images/jiantou.gif" />您现在的位置：</span>
+    <ul class="placeul">
+        <li>&nbsp;<a href="~/Home/Index">川渝同乡联合总会</a>&nbsp;&gt;&gt;&nbsp;<a href="javascript:void(0)">会员</a>&nbsp;&gt;&gt;&nbsp;添加企业信息</li>
+    </ul>
+</div>
+<div class="divborder">
+    @using (Html.BeginForm("SubmitAddCompany", "User", FormMethod.Post, new { @id = "AddCompanyForm" }))
+    {
+        <div class="formtitle"> <span>基本信息</span> </div>
+        <div>
+            <ul class="forminfo clr">
+                <li>
+                    <label>公司名称：</label>
+                    @Html.TextBoxFor(m => m.CompanyName, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>行业类别：</label>
+                    @Html.DropDownListFor(m => m.Industry, Html.GetIndustryEnum(), new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>联系人：</label>
+                    @Html.TextBoxFor(m => m.ContactName, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>联系人电话：</label>
+                    @Html.TextBoxFor(m => m.ContactPhone, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>联系人邮件：</label>
+                    @Html.TextBoxFor(m => m.ContactEmail, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>公司电话：</label>
+                    @Html.TextBoxFor(m => m.CompanyTel, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>公司传真：</label>
+                    @Html.TextBoxFor(m => m.CompanyFax, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>公司地址：</label>
+                    @Html.TextBoxFor(m => m.CompanyAddress, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>公司网址：</label>
+                    @Html.TextBoxFor(m => m.CompanyWebsite, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+            </ul>
+        </div>
+        <div>
+            @{Html.RenderPartial("User/_CompanyProfile");}
+        </div>
+    }
+    <br />
+    <div style="padding-left: 16%;">
+        <input name="" type="button" class="sure" id="btnSubmitRegister" value="提交" />
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <input name="" type="button" class="cancel" id="btnBackHome" value="返回首页" />
+    </div>
+    <br />
+</div>
