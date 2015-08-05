@@ -236,8 +236,89 @@ ins, a {
     color: #2393df !important;
 }
 
+/* 新样式 */
+
+/* ==栏目菜单样式== */
+#menubox {
+    width: 100%;
+    height: 41px;
+    background: url(../images/navbg.jpg) repeat-x center center;
+    text-align: center;
+    margin: 0px auto;
+}
+.m_box{
+	width: 940px;
+	height: 41px;
+	margin: 0px auto;
+	text-align: left;
+	overflow: hidden;
+}
+.m_box img{
+	float: left;
+	display: block;
+	width: 2px;
+	height: 41px;
+	text-align: center;
+	margin: 0px 9px;
+}
+.menu{
+	float: left;
+	display: block;
+	width: 66px;
+	height: 41px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 41px;
+	text-align: center;
+} 
+.menu:hover{
+	color: #6C7100;
+}
+.menunow {
+    float: left;
+    display: block;
+    width: 66px;
+    height: 41px;
+    color: #6C7100;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 41px;
+    background: url(../images/cv.jpg) no-repeat center top;
+    text-align: center;
+} 
+.menunow:hover{
+	color: #6C7100;
+}
+
+.btmenu {color:#333333;font-size:12px;line-height:150%;text-decoration: none} 
+A.btmenu:link{color:#333333;}
+A.btmenu:visited{color:#333333;}
+A.btmenu:active{color:#333333;}
+A.btmenu:hover{color:#ff6611;}
+
+.smenu {color:#ffffff;font-size:12px;line-height:150%;text-decoration: none} 
+A.smenu:link{color:#ffffff;}
+A.smenu:visited{color:#ffffff;}
+A.smenu:active{color:#ffffff;}
+A.smenu:hover{color:#ffffff;}
+
+.smenuv {color:#555555;font-size:12px;line-height:150%;text-decoration: none} 
+td.smenuv {border:0px #dddddd solid} 
+A.smenuv:link{color:#555555;}
+A.smenuv:visited{color:#555555;}
+A.smenuv:active{color:#555555;}
+A.smenuv:hover{color:#555555;}
+
+
+/* ==页内导航样式== */
+
+.nav {color:#777777;font-size:12px;} 
+td.nav {padding-left:5px} 
+
+
 #header {
-    width: 1024px;
+    /*width: 1024px;*/
     margin-right: auto;
     margin-left: auto;
 }
@@ -272,8 +353,8 @@ ins, a {
 }
 
 .place {
-    height: 40px;
-    background: url(../images/righttop.gif) repeat-x;
+    height: 41px;
+    background: url(../images/righttop2.jpg) repeat-x;
 }
 
     .place span {
