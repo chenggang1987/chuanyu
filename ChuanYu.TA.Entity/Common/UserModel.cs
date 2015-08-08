@@ -27,6 +27,7 @@ using ChuanYu.TA.Entity.Enums;
 
 namespace ChuanYu.TA.Entity.Common
 {
+    [Serializable]
     public class UserModel
     {
         /// <summary>

@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_PageLayout.cshtml";
 }
 @using ChuanYu.TA.MvcApp.Common
-@model ChuanYu.TA.MvcApp.Models.CyUser
+@model ChuanYu.TA.MvcApp.Models.User.CyUser
 <div class="place">
     <span><img src="~/Content/images/jiantou.gif" />您现在的位置：</span>
     <ul class="placeul">
@@ -86,7 +86,9 @@
                     <label>现居地：</label>
                     @Html.TextBoxFor(m => m.Residence, new {@class = "dfinput", @style = "width: 268px; float: left;"})
                     <label style="width: 10px;"></label>
-                    <b><label style="width: 300px; text-align: left; padding-left: 36px; color: red;" id="lbErrorInfo"></label></b>
+                    <b>
+                        <label style="width: 300px; text-align: left; padding-left: 36px; color: red;" id="lbErrorInfo"></label>
+                    </b>
                 </li>
                 <li>
                     <label>从事行业：</label>

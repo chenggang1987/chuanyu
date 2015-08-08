@@ -1,0 +1,5 @@
+E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\bin\Release\Sys.Common.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\bin\Release\Sys.Common.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\obj\Release\Sys.Common.csprojResolveAssemblyReference.cache
+E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\obj\Release\Sys.Common.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\Sys.Common\obj\Release\Sys.Common.pdb

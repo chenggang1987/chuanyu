@@ -246,35 +246,40 @@ ins, a {
     text-align: center;
     margin: 0px auto;
 }
-.m_box{
-	width: 940px;
-	height: 41px;
-	margin: 0px auto;
-	text-align: left;
-	overflow: hidden;
+
+.m_box {
+    width: 940px;
+    height: 41px;
+    margin: 0px auto;
+    text-align: left;
+    overflow: hidden;
 }
-.m_box img{
-	float: left;
-	display: block;
-	width: 2px;
-	height: 41px;
-	text-align: center;
-	margin: 0px 9px;
+
+    .m_box img {
+        float: left;
+        display: block;
+        width: 2px;
+        height: 41px;
+        text-align: center;
+        margin: 0px 9px;
+    }
+
+.menu {
+    float: left;
+    display: block;
+    width: 66px;
+    height: 41px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 41px;
+    text-align: center;
 }
-.menu{
-	float: left;
-	display: block;
-	width: 66px;
-	height: 41px;
-	color: #fff;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 41px;
-	text-align: center;
-} 
-.menu:hover{
-	color: #6C7100;
-}
+
+    .menu:hover {
+        color: #6C7100;
+    }
+
 .menunow {
     float: left;
     display: block;
@@ -286,39 +291,100 @@ ins, a {
     line-height: 41px;
     background: url(../images/cv.jpg) no-repeat center top;
     text-align: center;
-} 
-.menunow:hover{
-	color: #6C7100;
 }
 
-.btmenu {color:#333333;font-size:12px;line-height:150%;text-decoration: none} 
-A.btmenu:link{color:#333333;}
-A.btmenu:visited{color:#333333;}
-A.btmenu:active{color:#333333;}
-A.btmenu:hover{color:#ff6611;}
+    .menunow:hover {
+        color: #6C7100;
+    }
 
-.smenu {color:#ffffff;font-size:12px;line-height:150%;text-decoration: none} 
-A.smenu:link{color:#ffffff;}
-A.smenu:visited{color:#ffffff;}
-A.smenu:active{color:#ffffff;}
-A.smenu:hover{color:#ffffff;}
+.btmenu {
+    color: #333333;
+    font-size: 12px;
+    line-height: 150%;
+    text-decoration: none;
+}
 
-.smenuv {color:#555555;font-size:12px;line-height:150%;text-decoration: none} 
-td.smenuv {border:0px #dddddd solid} 
-A.smenuv:link{color:#555555;}
-A.smenuv:visited{color:#555555;}
-A.smenuv:active{color:#555555;}
-A.smenuv:hover{color:#555555;}
+A.btmenu:link {
+    color: #333333;
+}
+
+A.btmenu:visited {
+    color: #333333;
+}
+
+A.btmenu:active {
+    color: #333333;
+}
+
+A.btmenu:hover {
+    color: #ff6611;
+}
+
+.smenu {
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 150%;
+    text-decoration: none;
+}
+
+A.smenu:link {
+    color: #ffffff;
+}
+
+A.smenu:visited {
+    color: #ffffff;
+}
+
+A.smenu:active {
+    color: #ffffff;
+}
+
+A.smenu:hover {
+    color: #ffffff;
+}
+
+.smenuv {
+    color: #555555;
+    font-size: 12px;
+    line-height: 150%;
+    text-decoration: none;
+}
+
+td.smenuv {
+    border: 0px #dddddd solid;
+}
+
+A.smenuv:link {
+    color: #555555;
+}
+
+A.smenuv:visited {
+    color: #555555;
+}
+
+A.smenuv:active {
+    color: #555555;
+}
+
+A.smenuv:hover {
+    color: #555555;
+}
 
 
 /* ==页内导航样式== */
 
-.nav {color:#777777;font-size:12px;} 
-td.nav {padding-left:5px} 
+.nav {
+    color: #777777;
+    font-size: 12px;
+}
+
+td.nav {
+    padding-left: 5px;
+}
 
 
 #header {
-    /*width: 1024px;*/
+    width: 1024px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -351,7 +417,21 @@ td.nav {padding-left:5px}
 .divborder {
     border: 1px solid #CCCCCC;
 }
-
+.banner_top{
+    text-align:right;
+    margin-top:10px;
+}
+.banner {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+    .banner img {
+        width:96px;
+    }
+    .banner span{
+        font-size:30px;
+       color:blue;
+    }
 .place {
     height: 41px;
     background: url(../images/righttop2.jpg) repeat-x;
@@ -488,7 +568,21 @@ td.nav {padding-left:5px}
 .clr, .clearfix {
     zoom: 1;
 }
-.sure ,.cancel{width:96px; height:35px; line-height:35px; color:#fff; background:url(../images/btnbg1.png) repeat-x; font-size:14px; font-weight:bold;border-radius: 3px; cursor:pointer;}
-.cancel{background:url(../images/btnbg2.png) repeat-x;color:#000;font-weight:normal;}
 
+.sure, .cancel {
+    width: 96px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background: url(../images/btnbg1.png) repeat-x;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
+.cancel {
+    background: url(../images/btnbg2.png) repeat-x;
+    color: #000;
+    font-weight: normal;
+}

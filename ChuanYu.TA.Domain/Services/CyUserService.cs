@@ -24,6 +24,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using ChuanYu.TA.Data;
 using ChuanYu.TA.Data.User;
 using ChuanYu.TA.Entity.Common;
@@ -179,6 +180,12 @@ namespace ChuanYu.TA.Domain.Services
                     {
                         commonResult.Success = false;
                         commonResult.Message = "密码错误";
+                        return commonResult;
+                    }
+                    if (!string.Equals(HttpContext.Current.Session["vcode"].ToString(), user.ValideCode, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        commonResult.Success = false;
+                        commonResult.Message = "验证码填写错误";
                         return commonResult;
                     }
 

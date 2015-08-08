@@ -1,24 +1,26 @@
-﻿@{
+﻿@using ChuanYu.TA.Entity.Common.Menu
+@{
     ViewBag.Title = "_Sidebar";
+    var sidemenu = ChuanYu.TA.Domain.Common.UserContext.CurrentMenu as Menu;
 }
+
 <link href="~/Content/css/sidebar.css" rel="stylesheet" />
 <div class="sidetop">
 </div>
 <div class="sidemain">
     <table border="0" cellspacing="0" cellpadding="0" align="center" height="27">
         <tbody>
-            <tr>
-                <td background="~/Content/images/sv.jpg" class="smenuv" align="center" nowrap="" width="199" height="33">
-                    <a href="/User/RegistInfo" class="smenuv" target="_self">会员须知</a>
-                </td>
-            </tr>
-            <tr>
-                <td background="~/Content/images/sv.jpg" class="smenuv" align="center" nowrap="" width="199" height="33">
-                    <a href="/User/Register" class="smenuv" target="_self">会员注册</a>
-                </td>
-            </tr>
+            @if (sidemenu != null)
+            {
+                foreach (var item in sidemenu.MenuItems)
+                {
+                    <tr>
+                        <td background="~/Content/images/sv.jpg" class="smenuv" align="center" nowrap="" width="199" height="33">
+                            <a href="@item.Url" class="smenuv" target="_self">@item.Name</a>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 </div>
-
-

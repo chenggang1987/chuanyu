@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "_UserEdit";
+}
+@model ChuanYu.TA.MvcApp.Models.CyUser
+<div>
+    @using (Html.BeginForm("SaveUserEdit", "User", FormMethod.Post, new { @id = "UserEditForm" }))
+    {
+        <ul class="forminfo clr">
+            <li>
+                <label>昵称：</label>
+                @Html.TextBoxFor(m => m.NickName, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+                @Html.HiddenFor(m=>m.UserNo)
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>真实姓名：</label>
+                @Html.TextBoxFor(m => m.TrueName, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>性别：</label>
+                @Html.TextBoxFor(m => m.Gender, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>手机：</label>
+                @Html.TextBoxFor(m => m.MobilePhone, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>邮箱：</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>QQ：</label>
+                @Html.TextBoxFor(m => m.QQ, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>出生日期：</label>
+                @Html.TextBoxFor(m => m.Birthday, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>出生地：</label>
+                @Html.TextBoxFor(m => m.BirthPlace, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>现居地：</label>
+                @Html.TextBoxFor(m => m.Residence, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+                <label style="width: 10px;"></label>
+                <b><label style="width: 300px; text-align: left; padding-left: 36px; color: red;" id="lbErrorInfo"></label></b>
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>从事行业：</label>
+                @Html.TextBoxFor(m => m.Industry, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+            </li>
+        </ul>
+        <ul class="forminfo clr">
+            <li>
+                <label>职位：</label>
+                @Html.TextBoxFor(m => m.Position, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+            </li>
+        </ul>
+    }
+</div>

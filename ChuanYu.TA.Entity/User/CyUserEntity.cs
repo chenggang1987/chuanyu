@@ -110,5 +110,7 @@ namespace ChuanYu.TA.Entity.User
         /// 角色
         /// </summary>
         public Role Role { get; set; }
+
+        public string ValideCode { get; set; }
     }
 }

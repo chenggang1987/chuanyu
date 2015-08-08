@@ -5,11 +5,14 @@ using ChuanYu.TA.Domain.Common;
 using ChuanYu.TA.Domain.Services;
 using ChuanYu.TA.Entity.Enums;
 using ChuanYu.TA.Entity.User;
+using ChuanYu.TA.MvcApp.Common;
 using ChuanYu.TA.MvcApp.Models;
+using ChuanYu.TA.MvcApp.Models.User;
 using Sys.Common;
 
 namespace ChuanYu.TA.MvcApp.Controllers
 {
+    [ResourceFilter]
     public class UserController : Controller
     {
         //
@@ -41,10 +44,14 @@ namespace ChuanYu.TA.MvcApp.Controllers
             return View();
         }
 
-        public ActionResult UserDetail(string userNo)
+        public ActionResult UserDetail()
         {
-            userNo = "CYHY000001";
             var user = new CyUser();
+            var userNo = UserContext.CurrentUser.UserNo;
+            if (string.IsNullOrEmpty(userNo))
+            {
+                 return RedirectToAction("Login","Login");
+            }
             var model = CyUserService.GetCyUserByNo(userNo).ResultObj;
             if (model != null)
             {

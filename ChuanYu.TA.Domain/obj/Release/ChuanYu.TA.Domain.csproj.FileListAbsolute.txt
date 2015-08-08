@@ -1,0 +1,11 @@
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Release\ChuanYu.TA.Domain.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Release\ChuanYu.TA.Domain.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Release\ChuanYu.TA.Data.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Release\ChuanYu.TA.Entity.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Release\Sys.Common.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Release\ChuanYu.TA.Data.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Release\ChuanYu.TA.Entity.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\bin\Release\Sys.Common.pdb
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\obj\Release\ChuanYu.TA.Domain.csprojResolveAssemblyReference.cache
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\obj\Release\ChuanYu.TA.Domain.dll
+E:\MyCode\GitHub\ChuanYu.TA.OW\ChuanYu.TA.Domain\obj\Release\ChuanYu.TA.Domain.pdb

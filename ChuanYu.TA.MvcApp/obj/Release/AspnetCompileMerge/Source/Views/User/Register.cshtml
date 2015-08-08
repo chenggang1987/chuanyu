@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "会员注册";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+@using ChuanYu.TA.MvcApp.Common
+@model ChuanYu.TA.MvcApp.Models.CyUser
+<div class="place">
+    <span><img src="~/Content/images/jiantou.gif" />您现在的位置：</span>
+    <ul class="placeul">
+        <li>&nbsp;<a href="~/Home/Index">川渝同乡联合总会</a>&nbsp;&gt;&gt;&nbsp;<a href="javascript:void(0)">会员</a>&nbsp;&gt;&gt;&nbsp;注册</li>
+    </ul>
+</div>
+<div class="divborder">
+    <div class="formtitle"> <span>基本信息</span> </div>
+    <div >
+        @using (Html.BeginForm("SubmitRegister", "User", FormMethod.Post, new { @id = "RegisterForm" }))
+        {
+            <ul class="forminfo clr">
+                <li>
+                    <label>会员名：</label>
+                    @Html.TextBoxFor(m => m.UserName, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;">会员名用于登录</label>
+                </li>
+                <li>
+                    <label>密码：</label>
+                    @Html.PasswordFor(m => m.UserPwd, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;">至少6位，区分大小写</label>
+                </li>
+                <li>
+                    <label>确认密码：</label>
+                    <input type="password" style="width: 268px; float: left;" value="" class="dfinput" name="" id="UserPwd2">
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;">请再次输入密码</label>
+                </li>
+                <li>
+                    <label>昵称：</label>
+                    @Html.TextBoxFor(m => m.NickName, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;">格式：家乡地址-职业-名称</label>
+                </li>
+                <li>
+                    <label>真实姓名：</label>
+                    @Html.TextBoxFor(m => m.TrueName, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;">真实姓名不在网站公布，网站内容只显示昵称</label>
+                </li>
+                <li>
+                    <label>性别：</label>
+                    <label style="text-align: left;">&nbsp;&nbsp;<input type="radio" name="Gender" value="0"/>女&nbsp;&nbsp;<input type="radio" name="Gender" value="1"/>男</label>
+                    <label style="width: 10px; padding-left: 175px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;">请选择性别</label>
+                </li>
+                <li>
+                    <label>手机：</label>
+                    @Html.TextBoxFor(m => m.MobilePhone, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;">手机号码不在网站公布</label>
+                </li>
+                <li>
+                    <label>邮箱：</label>
+                    @Html.TextBoxFor(m => m.Email, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;">请输入有效的邮件地址，以便我们可以及时与您联系</label>
+                </li>
+                <li>
+                    <label>QQ：</label>
+                    @Html.TextBoxFor(m => m.QQ, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"><b>*</b></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;">请输入入群的QQ号，以便我们可以及时与您联系</label>
+                </li>
+                <li>
+                    <label>出生日期：</label>
+                    @Html.TextBoxFor(m => m.Birthday, new {@class = "dfinput", @style = "width: 268px; float: left;", @id = "Birthday"})
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>出生地：</label>
+                    @Html.TextBoxFor(m => m.BirthPlace, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>现居地：</label>
+                    @Html.TextBoxFor(m => m.Residence, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"></label>
+                    <b><label style="width: 300px; text-align: left; padding-left: 36px; color: red;" id="lbErrorInfo"></label></b>
+                </li>
+                <li>
+                    <label>从事行业：</label>
+                    @Html.DropDownListFor(m => m.Industry, Html.GetIndustryEnum(), new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+                <li>
+                    <label>职位：</label>
+                    @Html.TextBoxFor(m => m.Position, new {@class = "dfinput", @style = "width: 268px; float: left;"})
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+            </ul>
+        }
+    </div>
+    <br />
+    <div style="padding-left: 16%;">
+        <input name="" type="button" class="sure" id="btnSubmitRegister" value="提交"/>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <input name="" type="button" class="cancel" id="btnBackHome" value="返回首页"/>
+    </div>
+    <br />
+</div>
+<script type="text/javascript">
+    $(function() {
+        //时间控件
+        $("#Birthday").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            onSelect: function() {
+            }
+        });
+    });
+
+    $("#btnSubmitRegister").click(function () {
+
+        $("#lbErrorInfo").html("");
+        if ($("#UserName").val() === "") {
+            $("#lbErrorInfo").html("请输入用户名");
+            $("#UserName").focus();
+            return false;
+        }
+        if ($("#UserPwd").val() === "") {
+            $("#lbErrorInfo").html("请输入密码");
+            $("#UserPwd").focus();
+            return false;
+        }
+        if ($("#UserPwd").val() !== $("#UserPwd2").val()) {
+            $("#lbErrorInfo").html("两次输入密码不一致");
+            $("#UserPwd2").focus();
+            return false;
+        }
+        if ($("#NickName").val() === "") {
+            $("#lbErrorInfo").html("请输入昵称");
+            $("#NickName").focus();
+            return false;
+        }
+        if ($("#TrueName").val() === "") {
+            $("#lbErrorInfo").html("请输入真实姓名");
+            $("#TrueName").focus();
+            return false;
+        }
+        if ($('input:radio[name="Gender"]:checked').val() === undefined) {
+            $("#lbErrorInfo").html("请选择性别");
+            return false;
+        }
+        if ($("#MobilePhone").val() === "") {
+            $("#lbErrorInfo").html("请输入手机号");
+            $("#MobilePhone").focus();
+            return false;
+        }
+        if ($("#Email").val() === "") {
+            $("#lbErrorInfo").html("请输入邮箱");
+            $("#Email").focus();
+            return false;
+        }
+        if ($("#QQ").val() === "") {
+            $("#lbErrorInfo").html("请输入QQ号");
+            $("#QQ").focus();
+            return false;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: '/User/SubmitRegister',
+            data: $("#RegisterForm").serialize()
+        }).done(function (data) {
+            if (data.IsSuccess) {
+                ymPrompt.alert({ title: '提示', message: '注册成功！' });
+                window.location.href = "/Home/Index";
+            }
+            else {
+                if (data.ErrorInfo !== "") {
+                    ymPrompt.errorInfo({ title: '提示', message: '注册失败！' + data.ErrorInfo });
+                }
+                else {
+                    ymPrompt.errorInfo({ title: '提示', message: '注册失败！' });
+                }
+            }
+        }).fail(function (msg) {
+            ymPrompt.errorInfo({ title: '提示', message: '请求异常！' });
+        });
+        return true;
+    });
+
+    $("#btnBackHome").click(function () {
+        window.location.href = "/Home/Index";
+    });
+</script>

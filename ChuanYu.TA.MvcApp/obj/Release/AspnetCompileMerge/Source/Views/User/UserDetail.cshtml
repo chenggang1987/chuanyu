@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "会员信息管理";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+@model ChuanYu.TA.MvcApp.Models.CyUser
+
+<div class="place">
+    <span><img src="~/Content/images/jiantou.gif" />您现在的位置：</span>
+    <ul class="placeul">
+        <li>&nbsp;<a href="~/Home/Index">川渝同乡联合总会</a>&nbsp;&gt;&gt;&nbsp;<a href="javascript:void(0)">会员</a>&nbsp;&gt;&gt;&nbsp;信息管理</li>
+    </ul>
+</div>
+<div class="divborder">
+    <div class="formtitle"> <span>基本信息</span> </div>
+    <div id="UserInfo">
+        @{Html.RenderPartial("User/_UserInfo", Model);}
+    </div>
+    <div id="UserEdit" style="display: none">
+        @{Html.RenderPartial("User/_UserEdit", Model);}
+        <br />
+        <div style="padding-left: 16%;">
+            <input name="" type="button" class="sure" onclick="SaveEdit()" value="保存" />
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <input name="" type="button" class="cancel" onclick="BackInfo()" value="返回" />
+        </div>
+        <br />
+    </div>
+</div>
+<script type="text/javascript">
+    function UserEdit() {
+        $("#UserInfo").hide();
+        $("#UserEdit").show();
+    }
+
+    function BackInfo() {
+        $("#UserEdit").hide();
+        $("#UserInfo").show();
+    }
+
+    function SaveEdit() {
+        if ($("#NickName").val() === "") {
+            $("#lbErrorInfo").html("请输入昵称");
+            $("#NickName").focus();
+            return false;
+        }
+        if ($("#TrueName").val() === "") {
+            $("#lbErrorInfo").html("请输入真实姓名");
+            $("#TrueName").focus();
+            return false;
+        }
+        if ($("#MobilePhone").val() === "") {
+            $("#lbErrorInfo").html("请输入手机号");
+            $("#MobilePhone").focus();
+            return false;
+        }
+        if ($("#Email").val() === "") {
+            $("#lbErrorInfo").html("请输入邮箱");
+            $("#Email").focus();
+            return false;
+        }
+        if ($("#QQ").val() === "") {
+            $("#lbErrorInfo").html("请输入QQ号");
+            $("#QQ").focus();
+            return false;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: '/User/SaveUserEdit',
+            data: $("#UserEditForm").serialize()
+        }).done(function (data) {
+            if (data.IsSuccess) {
+                ymPrompt.alert({ title: '提示', message: '保存成功！' });
+                window.location.href = "/User/UserDetail";
+            }
+            else {
+                if (data.ErrorInfo !== "") {
+                    ymPrompt.errorInfo({ title: '提示', message: '保存失败！' + data.ErrorInfo });
+                }
+                else {
+                    ymPrompt.errorInfo({ title: '提示', message: '保存失败！' });
+                }
+            }
+        }).fail(function (msg) {
+            ymPrompt.errorInfo({ title: '提示', message: '请求异常！' });
+        });
+        return true;
+    }
+</script>

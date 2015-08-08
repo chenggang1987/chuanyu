@@ -1,5 +1,97 @@
 ﻿@{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "会员登陆";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
 }
-
-<h2>Login</h2>
+@model ChuanYu.TA.MvcApp.Models.User.LoginUser
+<div class="place">
+    <span><img src="~/Content/images/jiantou.gif" />您现在的位置：</span>
+    <ul class="placeul">
+        <li>&nbsp;<a href="~/Home/Index">川渝同乡联合总会</a>&nbsp;&gt;&gt;&nbsp;<a href="javascript:void(0)">会员</a>&nbsp;&gt;&gt;&nbsp;登录</li>
+    </ul>
+</div>
+<div class="divborder">
+    <div class="formtitle"> <span>登录信息</span> </div>
+    <div>
+        @using (Html.BeginForm("LoginAction", "Login", FormMethod.Post, new { @id = "SignInForm" }))
+        {
+            <ul class="forminfo clr">
+                <li>
+                    <label>会员名：</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+            </ul>
+            <ul class="forminfo clr">
+                <li>
+                    <label>密码：</label>
+                    @Html.PasswordFor(m => m.UserPwd, new { @class = "dfinput", @style = "width: 268px; float: left;" })
+                    <label style="width: 10px;"></label>
+                    <label style="width: 300px; text-align: left; padding-left: 20px;"></label>
+                </li>
+            </ul>
+            <ul class="forminfo clr">
+                <li>
+                    <label>验证码：</label>
+                    @Html.TextBoxFor(m => m.ValideCode, new { @class = "dfinput", @style = "width: 158px; float: left;" })
+                    <label >
+                        <img src=@Url.Content("~/Login/GetValidateCode") id="valideCodeImg" alt="验证码" />
+                    </label>
+                    <b>
+                        <label style="width: 100px; text-align: left; padding-left: 56px; color: red;" id="lbErrorInfo"></label>
+                    </b>
+                </li>
+            </ul>
+        }
+    </div>
+    <br />
+    <div style="padding-left: 16%;">
+        <input name="" type="button" class="sure" onclick="SignIn()" value="登录" />
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <input name="" type="button" class="cancel" value="找回密码" />
+    </div>
+    <br />
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("#valideCodeImg").bind("click", function () {
+            this.src = "/Login/GetValidateCode?time=" + (new Date()).getTime();
+        });
+    });
+    function GetValideCode() {
+        $("#valideCodeImg").attr("src", '@Url.Content("~/Login/GetValidateCode?")' + Math.random());
+    }
+    function SignIn() {
+        if ($("#UserName").val() === "") {
+            $("#lbErrorInfo").html("请输入会员名");
+            $("#UserName").focus();
+            return false;
+        }
+        if ($("#UserPwd").val() === "") {
+            $("#lbErrorInfo").html("请输入密码");
+            $("#UserPwd").focus();
+            return false;
+        }
+        if ($("#ValideCode").val() === "") {
+            $("#lbErrorInfo").html("请输入验证码");
+            $("#ValideCode").focus();
+            return false;
+        }
+        $.ajax({
+            url: '/Login/LoginIn',
+            data: $("#SignInForm").serialize(),
+            type: 'Post',
+            success: function (data) {
+                if (data.Success) {
+                    window.location.href = "/Home/Index";
+                } else {
+                    $("#lbErrorInfo").html("");
+                    $("#lbErrorInfo").html(data.Message);
+                    $("input[name=ValideCode]").val("");
+                    GetValideCode();
+                }
+            }
+        });
+        return true;
+    }
+</script>

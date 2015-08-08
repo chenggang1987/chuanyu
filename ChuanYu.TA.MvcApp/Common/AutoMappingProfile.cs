@@ -21,6 +21,7 @@
 using AutoMapper;
 using ChuanYu.TA.Entity.User;
 using ChuanYu.TA.MvcApp.Models;
+using ChuanYu.TA.MvcApp.Models.User;
 
 namespace ChuanYu.TA.MvcApp.Common
 {

@@ -41,11 +41,15 @@
   <ItemGroup>
     <Compile Include="Base\BaseEntity.cs" />
     <Compile Include="Common\CommonResult.cs" />
+    <Compile Include="Common\CyResourceEntity.cs" />
+    <Compile Include="Common\Menu\Menu.cs" />
+    <Compile Include="Common\Menu\MenuItem.cs" />
     <Compile Include="Common\UserModel.cs" />
     <Compile Include="CySequenceCounterEntity.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\Industry.cs" />
     <Compile Include="Enums\MemberType.cs" />
+    <Compile Include="Enums\ResourceFlag.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="User\CyCompanyEntity.cs" />
     <Compile Include="User\CyUserEntity.cs" />

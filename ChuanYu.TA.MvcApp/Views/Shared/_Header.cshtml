@@ -2,44 +2,50 @@
     ViewBag.Title = "_Header";
 }
 
-<div>
-    <!--banner-->
-    <div>
-        <img src="~/Content/images/logo.png" width="96" />
+<!--banner-->
+<div id="header">
+    <div class="banner_top" id="banner_top">
+        <span>欢迎来到川渝同乡联合总会，<a href="/Login/Login">登录</a> | <a href="/User/RegistInfo">注册</a></span>
+    </div>
+    <div class="banner">
+        <img src="~/Content/images/logo.png" />
         <span>川渝同乡联合总会</span>
     </div>
-    <!--/banner-->
-    <!--导航-->
-    @*<div class="navbox">
-        <div class="nav">
-            <ul>
-                <li><a href="" class="cur">首页</a></li>
-                <li><a href="">活动频道</a></li>
-                <li><a href="">实业发展</a></li>
-                <li><a href="">同乡企业</a></li>
-                <li><a href="">关于我们</a></li>
-            </ul>
-        </div>
-    </div>*@
-    <div id="menubox">
-        <div class="m_box">
-            <a href="~/Home/Index" class="menunow" target="_self">首页</a>
+</div>
+<div id="menubox" style="margin-top: 10px;">
+    <div class="m_box">
+        <a href="~/Home/Index" class="menunow" target="_self">首页</a>
 
-            <img src="~/Content/images/vv.jpg" />
+        <img src="~/Content/images/vv.jpg"/>
 
-            <a href="#" class="menu" target="_self">活动频道</a>
+        <a href="#" class="menu" target="_self">活动频道</a>
 
-            <img src="~/Content/images/vv.jpg" />
+        <img src="~/Content/images/vv.jpg"/>
 
-            <a href="#" class="menu" target="_self">实业发展</a>
+        <a href="#" class="menu" target="_self">实业发展</a>
 
-            <img src="~/Content/images/vv.jpg" />
+        <img src="~/Content/images/vv.jpg"/>
 
-            <a href="#" class="menu" target="_self">同乡汇</a>
+        <a href="#" class="menu" target="_self">同乡汇</a>
 
-            <img src="~/Content/images/vv.jpg" />
+        <img src="~/Content/images/vv.jpg"/>
 
-            <a href="#" class="menu" target="_self">关于我们</a>
-        </div>
+        <a href="#" class="menu" target="_self">关于我们</a>
     </div>
 </div>
+<script type="text/javascript">
+    $(function() {
+        $.ajax({
+            url: '/Home/LoginInfo',
+            data: '',
+            type: 'Post',
+            success: function (data) {
+                if (data.UserName!=="") {
+                    $("#banner_top").html("<span>欢迎 " + data.UserName + "，<a href='/User/UserDetail'>个人中心</a> | <a href='/Login/LoginOut'>退出登录</a></span>");
+                } else {
+                    $("#banner_top").html("<span>欢迎来到川渝同乡联合总会，<a href='/Login/Login'>登录</a> | <a href='/User/RegistInfo'>注册</a></span>");
+                }
+            }
+        });
+    });
+</script>

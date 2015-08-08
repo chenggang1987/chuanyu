@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 using ChuanYu.TA.Entity.Common;
 using System.Web;
 using System.Web.Security;
+using ChuanYu.TA.Entity.Common.Menu;
 
 namespace ChuanYu.TA.Domain.Common
 {
@@ -51,10 +52,14 @@ namespace ChuanYu.TA.Domain.Common
                 {
                     throw;
                 }
-
                 return userModel;
             }
         }
+
+        /// <summary>
+        /// 当前菜单
+        /// </summary>
+        public static Menu CurrentMenu { get; set; }
 
         /// <summary>
         /// 设置客户端口验证票据
@@ -110,6 +115,12 @@ namespace ChuanYu.TA.Domain.Common
                 FormsAuthentication.RedirectToLoginPage();
             }
             return model ?? new UserModel();
+        }
+
+        public static void RemoveAuthUser()
+        {
+            HttpContext.Current.Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
+            FormsAuthentication.SignOut();
         }
     }
 }
