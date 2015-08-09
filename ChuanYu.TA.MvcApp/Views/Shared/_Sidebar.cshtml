@@ -1,26 +1,51 @@
-﻿@using ChuanYu.TA.Entity.Common.Menu
-@{
+﻿@{
     ViewBag.Title = "_Sidebar";
-    var sidemenu = ChuanYu.TA.Domain.Common.UserContext.CurrentMenu as Menu;
+    var menu = ChuanYu.TA.Domain.Common.UserContext.Menu;
 }
 
 <link href="~/Content/css/sidebar.css" rel="stylesheet" />
 <div class="sidetop">
 </div>
 <div class="sidemain">
-    <table border="0" cellspacing="0" cellpadding="0" align="center" height="27">
+    <table border="0" cellspacing="0" cellpadding="0" align="center" height="27" id="sidemenu">
         <tbody>
-            @if (sidemenu != null)
+        @foreach (var menuitem in menu.CurrentMenu)
+        {
+            if (menuitem.CurrentNavMenu.IsChecked)
             {
-                foreach (var item in sidemenu.MenuItems)
+                var sidemenu = menuitem.CurrentSideMenu;
+                foreach (var side in sidemenu)
                 {
+                    var classValue = side.IsChecked ? "smenuvnow" : "smenuv";
                     <tr>
-                        <td background="~/Content/images/sv.jpg" class="smenuv" align="center" nowrap="" width="199" height="33">
-                            <a href="@item.Url" class="smenuv" target="_self">@item.Name</a>
+                        <td class="@classValue" align="center" nowrap="" width="199" height="33">
+                            <a href="javascript:void(0)" class="smenuv" id="@side.MenuId" url="@side.Url" target="_self">@side.Name</a>
                         </td>
                     </tr>
                 }
             }
+        }
+
         </tbody>
     </table>
 </div>
+<script type="text/javascript">
+    $(function () {
+        //侧面导航切换
+        $(".sidemenu a").click(function () {
+            var id = $(this).attr("id");
+            var url = $(this).attr("url");
+            var param = { "sideId": id };
+            $.ajax({
+                url: '/Home/SideMenuSwitch',
+                data: param,
+                type: 'Post',
+                success: function (data) {
+                    if (data.Success) {
+                        window.location.href = url;
+                    }
+                }
+            });
+        });
+    });
+</script>

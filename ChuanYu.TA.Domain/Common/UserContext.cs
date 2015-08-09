@@ -55,11 +55,11 @@ namespace ChuanYu.TA.Domain.Common
                 return userModel;
             }
         }
-
         /// <summary>
         /// 当前菜单
         /// </summary>
-        public static Menu CurrentMenu { get; set; }
+        public static Menu Menu { get; set; }
+
 
         /// <summary>
         /// 设置客户端口验证票据

@@ -25,6 +25,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ChuanYu.TA.Data;
 using ChuanYu.TA.Data.User;
+using ChuanYu.TA.Domain.Common;
 using ChuanYu.TA.Entity.Common.Menu;
 using Sys.Common;
 
@@ -45,8 +46,14 @@ namespace ChuanYu.TA.Domain.Services
 
         public List<MenuItem> GetMenuList()
         {
-            var resource = CyCommonProvider.GetCyResourceList().ResultObjList;
             var list = new List<MenuItem>();
+            var cacheModel =
+                System.Web.HttpContext.Current.Cache.Get(CacheKey.ResourcePrefix + UserContext.CurrentUser.UserNo) as List<MenuItem>;
+            if (cacheModel != null)
+            {
+                return cacheModel;
+            }
+            var resource = CyCommonProvider.GetCyResourceList().ResultObjList;
             resource.ForEach(f =>
             {
                 var menuitem = new MenuItem();
@@ -54,9 +61,10 @@ namespace ChuanYu.TA.Domain.Services
                 {
                     var parentNo = f.MenuCode.Substring(0, 3);
                     menuitem.Name = f.ResourceName;
-                    menuitem.Url = f.RequestPath+"?ParentNo="+parentNo;
-                    menuitem.MenuLevel = f.MenuCode;
-                    menuitem.ParentNo = parentNo;
+                    menuitem.Url = f.RequestPath;
+                    menuitem.MenuId = f.MenuId;
+                    menuitem.MenuCode = f.MenuCode;
+                    menuitem.ParentNo = f.MenuCode.Length == 3 ? "root" : parentNo;
                     if (f.MenuCode.Length == 3)
                     {
                         menuitem.IsMain = true;
@@ -70,6 +78,7 @@ namespace ChuanYu.TA.Domain.Services
                     list.Add(menuitem);
                 }
             });
+            System.Web.HttpContext.Current.Cache.Insert(CacheKey.ResourcePrefix + UserContext.CurrentUser.UserNo, list, null, DateTime.Now.AddHours(1), TimeSpan.Zero);
             return list;
         }
 

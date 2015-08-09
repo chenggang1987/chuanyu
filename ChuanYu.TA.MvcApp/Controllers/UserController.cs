@@ -32,10 +32,14 @@ namespace ChuanYu.TA.MvcApp.Controllers
         #endregion
         public ActionResult RegistInfo()
         {
+            CommonMethod.SetMenuChecked("sideRegister");
+ 
             return View();
         }
         public ActionResult Register()
         {
+            CommonMethod.SetMenuChecked("sideRegister");
+
             return View();
         }
 
@@ -46,6 +50,7 @@ namespace ChuanYu.TA.MvcApp.Controllers
 
         public ActionResult UserDetail()
         {
+            CommonMethod.SetMenuChecked("sideUserInfo");
             var user = new CyUser();
             var userNo = UserContext.CurrentUser.UserNo;
             if (string.IsNullOrEmpty(userNo))
@@ -61,6 +66,11 @@ namespace ChuanYu.TA.MvcApp.Controllers
             }
 
             return View(user);
+        }
+
+        public ActionResult CompanyDetail()
+        {
+            return View();
         }
 
         public JsonResult SubmitRegister(CyUser user)

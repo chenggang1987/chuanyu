@@ -36,6 +36,8 @@ namespace ChuanYu.TA.MvcApp.Controllers
         #endregion
         public ActionResult Login()
         {
+            CommonMethod.SetMenuChecked("sideLogin");
+
             return View();
         }
 

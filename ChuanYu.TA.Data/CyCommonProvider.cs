@@ -40,6 +40,7 @@ namespace ChuanYu.TA.Data
                                         ,[ResourceCode]
                                         ,[ResourceName]
                                         ,[MenuCode]
+                                        ,[MenuId]
                                         ,[RequestPath]
                                         ,[ResourceFlag]
                                         ,[Memo]

@@ -348,8 +348,15 @@ A.smenu:hover {
     font-size: 12px;
     line-height: 150%;
     text-decoration: none;
+    background: url(../images/sv.jpg);
 }
-
+.smenuvnow {
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 150%;
+    text-decoration: none;
+    background: url(../images/sv2.jpg);
+}
 td.smenuv {
     border: 0px #dddddd solid;
 }

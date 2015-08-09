@@ -33,9 +33,14 @@ namespace ChuanYu.TA.Entity.Common.Menu
         public string Url { get; set; }
 
         /// <summary>
-        /// 菜单级别
+        /// 菜单Id
         /// </summary>
-        public string MenuLevel { get; set; }
+        public string MenuId { get; set; }
+
+        /// <summary>
+        /// 菜单编码
+        /// </summary>
+        public string MenuCode { get; set; }
 
         /// <summary>
         /// 父节点Id
@@ -56,5 +61,10 @@ namespace ChuanYu.TA.Entity.Common.Menu
         /// 是否为主菜单
         /// </summary>
         public bool IsMain { get; set; }
+
+        /// <summary>
+        /// 是否为当前选中
+        /// </summary>
+        public bool IsChecked { get; set; }
     }
 }

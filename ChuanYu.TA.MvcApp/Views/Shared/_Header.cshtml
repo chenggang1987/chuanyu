@@ -1,11 +1,20 @@
 ﻿@{
     ViewBag.Title = "_Header";
+    var loginInfo = ChuanYu.TA.Domain.Common.UserContext.CurrentUser;
+    var navmenu = ChuanYu.TA.Domain.Common.UserContext.Menu;
 }
 
 <!--banner-->
 <div id="header">
     <div class="banner_top" id="banner_top">
-        <span>欢迎来到川渝同乡联合总会，<a href="/Login/Login">登录</a> | <a href="/User/RegistInfo">注册</a></span>
+        @if (!string.IsNullOrEmpty(loginInfo.UserName))
+        {
+            <span>欢迎 @loginInfo.UserName ，<a href='/User/UserDetail'>个人中心</a> | <a href='/Login/LoginOut'>退出登录</a></span>
+        }
+        else
+        {
+            <span>欢迎来到川渝同乡联合总会，<a href="/Login/Login">登录</a> | <a href="/User/RegistInfo">注册</a></span>
+        }
     </div>
     <div class="banner">
         <img src="~/Content/images/logo.png" />
@@ -14,38 +23,48 @@
 </div>
 <div id="menubox" style="margin-top: 10px;">
     <div class="m_box">
-        <a href="~/Home/Index" class="menunow" target="_self">首页</a>
+        @foreach (var nav in navmenu.CurrentMenu)
+        {
+            var classValue = nav.CurrentNavMenu.IsChecked ? "menunow" : "menu";
+            <a href="javascript:void(0)" class="@classValue" id="@nav.CurrentNavMenu.MenuId" url="@nav.CurrentNavMenu.Url" target="_self">@nav.CurrentNavMenu.Name</a>
+            <img src="~/Content/images/vv.jpg" alt="导航" />
+        }
 
-        <img src="~/Content/images/vv.jpg"/>
 
-        <a href="#" class="menu" target="_self">活动频道</a>
+        @*<img src="~/Content/images/vv.jpg" alt="导航" />
 
-        <img src="~/Content/images/vv.jpg"/>
+            <a href="javascript:void(0)" class="menu" id="navActivity" menuno="M03" target="_self">活动频道</a>
 
-        <a href="#" class="menu" target="_self">实业发展</a>
+            <img src="~/Content/images/vv.jpg" alt="导航" />
 
-        <img src="~/Content/images/vv.jpg"/>
+            <a href="javascript:void(0)" class="menu" id="navIndustry" menuno="M04" target="_self">实业发展</a>
 
-        <a href="#" class="menu" target="_self">同乡汇</a>
+            <img src="~/Content/images/vv.jpg" alt="导航" />
 
-        <img src="~/Content/images/vv.jpg"/>
+            <a href="javascript:void(0)" class="menu" id="navBusiness" menuno="M05" target="_self">同乡汇</a>
 
-        <a href="#" class="menu" target="_self">关于我们</a>
+            <img src="~/Content/images/vv.jpg" alt="导航" />
+
+            <a href="javascript:void(0)" class="menu" id="navAbout" menuno="M06" target="_self">关于我们</a>*@
     </div>
 </div>
 <script type="text/javascript">
-    $(function() {
-        $.ajax({
-            url: '/Home/LoginInfo',
-            data: '',
-            type: 'Post',
-            success: function (data) {
-                if (data.UserName!=="") {
-                    $("#banner_top").html("<span>欢迎 " + data.UserName + "，<a href='/User/UserDetail'>个人中心</a> | <a href='/Login/LoginOut'>退出登录</a></span>");
-                } else {
-                    $("#banner_top").html("<span>欢迎来到川渝同乡联合总会，<a href='/Login/Login'>登录</a> | <a href='/User/RegistInfo'>注册</a></span>");
+    $(function () {
+        //顶部导航切换
+        $(".m_box a").click(function () {
+            var id = $(this).attr("id");
+            var url = $(this).attr("url");
+            var param = { "navId": id };
+            $.ajax({
+                url: '/Home/NavMenuSwitch',
+                data: param,
+                type: 'Post',
+                success: function (data) {
+                    if (data.Success) {
+                        window.location.href = url;
+                    }
                 }
-            }
+            });
         });
     });
 </script>

@@ -131,10 +131,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AutoMapperConfig.cs" />
     <Compile Include="Common\AutoMappingProfile.cs" />
+    <Compile Include="Common\CommonMethod.cs" />
     <Compile Include="Common\HelperExtendMethod.cs" />
     <Compile Include="Common\ResourceFilter.cs" />
     <Compile Include="Common\WebHelper.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\ActivityController.cs" />
+    <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndustryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -569,6 +574,7 @@
     <Content Include="Views\Shared\User\_UserEdit.cshtml" />
     <Content Include="Views\User\AddCompany.cshtml" />
     <Content Include="Views\Shared\User\_CompanyProfile.cshtml" />
+    <Content Include="Views\User\CompanyDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

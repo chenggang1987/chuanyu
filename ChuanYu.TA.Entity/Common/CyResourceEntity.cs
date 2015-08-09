@@ -46,6 +46,10 @@ namespace ChuanYu.TA.Entity.Common
         /// </summary>
         public string MenuCode { set; get; }
         /// <summary>
+        /// 菜单Id
+        /// </summary>
+        public string MenuId { set; get; }
+        /// <summary>
         /// 请求路径
         /// </summary>
         public string RequestPath { set; get; }
